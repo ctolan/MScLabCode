@@ -1,0 +1,39 @@
+swagger: '2.0'
+info:
+  description: 'This is the first TUDTCDC MSc in DevOps EADes microservices example'
+  version: 1.0.0
+  title: The EADes News
+  termsOfService: http://303bha.duckdns.org/ead/res/files/microlab_terms.html
+  contact:
+    email: jvkitt@gmail.com
+  license:
+    name: 'No license'
+    url: http://303bha.duckdns.org/ead/res/files/dummy.html
+host: localhost:9999
+basePath: /v1
+schemes:
+  - https
+  - http
+paths:
+  /allthenews:
+    get:
+      tags:
+        - news
+      summary: Gets all the news
+      description: ''
+      operationId: getAllNews
+      consumes:
+        - application/json
+      produces:
+        - text/html
+        - text/plain
+      parameters:
+        - in: query
+          name: style
+          type: string
+          enum: ["plain", "blackandwhite", "colourful"]
+          description: News style
+          required: true
+      responses:
+        '405':
+          description: Invalid input
